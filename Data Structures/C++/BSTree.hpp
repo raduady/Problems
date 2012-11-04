@@ -21,11 +21,17 @@ public:
 	virtual ~BSTree() { delAll(this -> root); }
 
 	void Add(int elem) { this -> root = Add(elem, this -> root); }
-	void PrintInorder() const { PrintInorder(this -> root, 0); }
+	void PrintInorderRec() const { PrintInorderRec(this -> root, 0); }
+	void PrintInorderSt() const;
+	void PrintPreorderRec() const { PrintInorderRec(this -> root, 0); }
+	void PrintPostorderRec() const { PrintPostorderRec(this -> root, 0); }
+	void PrintPostorderSt() const;
 	void delAll(BTreeNode* node);
 
 private:
-	void PrintInorder(BTreeNode* node, int sp) const;
+	void PrintInorderRec(BTreeNode* node, int sp) const;
+	void PrintPreorderRec(BTreeNode* node, int sp) const;
+	void PrintPostorderRec(BTreeNode* node, int sp) const;
 	BTreeNode* Add(int elem, BTreeNode* node);
 };
 
