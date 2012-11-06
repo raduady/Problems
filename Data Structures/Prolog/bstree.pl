@@ -11,7 +11,7 @@ bvalue(btree(X, _, _), X).
 % bstree(+BinaryTree).
 bstree(btree(_, nil, nil)).
 bstree(btree(X, L, R)):- value(L, Vl), value(R, Vr), X > Vl, X < Vr, bstree(L),
-					 	 bstree(R).
+                          bstree(R).
 
 % add_bstree/3
 % add_bstree(+NewValue, +OldBST, -NewBST)
@@ -27,10 +27,10 @@ write_spaces(X):- write(' '), Y is X - 1, write_spaces(Y), !.
 % write_preorder_sp/2
 % write_preorder_sp(+NumSpaces, +BinaryTree).
 write_preorder_sp(Sp, nil):- write_spaces(Sp), write('.'), nl, !.
-write_preorder_sp(Sp, btree(V, L, R)):- write_spaces(Sp), write(V), nl,  
-										Nsp is Sp + 1,
-										write_preorder_sp(Nsp, L), !,
-										write_preorder_sp(Nsp, R), !.
+write_preorder_sp(Sp, btree(V, L, R)):- write_spaces(Sp), write(V), nl,
+                                        Nsp is Sp + 1,
+                                        write_preorder_sp(Nsp, L), !,
+                                        write_preorder_sp(Nsp, R), !.
 
 % write_preorder/2
 % write_preorder(+BinaryTree)
